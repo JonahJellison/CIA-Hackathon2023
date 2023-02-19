@@ -5,17 +5,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <ctype.h>
+#include <conio.h>
 
 void print_board(char board[SQUARE_SIZE][SQUARE_SIZE]);
+int diceROLL(int randomNUM);
 
 int main(void)
 {
+   int trueNUM = 0;
+
     char board[SQUARE_SIZE][SQUARE_SIZE] = {
         '\0'
     };
 
     print_board(board);
-
+    trueNUM = diceROLL(0);
+    printf("%d", trueNUM);
     return 0;
 }
             
@@ -48,3 +55,11 @@ void print_board(char board[SQUARE_SIZE][SQUARE_SIZE])
        printf("\n");
    }
 }
+
+int diceROLL(int randomNUM)
+{
+    srand(time(NULL));
+    return rand() % 3;
+}
+
+
