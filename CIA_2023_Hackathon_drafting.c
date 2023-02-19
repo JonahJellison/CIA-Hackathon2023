@@ -17,6 +17,16 @@ typedef struct player
 	int owned[4];
 }Player;
 
+typedef struct space
+{
+	int position;
+	int ownedBy;
+	int rentDue;
+	int playersContained[4];
+	char properyName[50];
+}Space;
+
+
 void print_board(char board[SQUARE_SIZE][SQUARE_SIZE]);
 int diceROLL(int randomNUM);
 Player initPlayer(int player);
