@@ -9,8 +9,17 @@
 #include <ctype.h>
 #include <conio.h>
 
+typedef struct player
+{
+	int position;
+	int balance;
+	int color;
+	int owned[4];
+}Player;
+
 void print_board(char board[SQUARE_SIZE][SQUARE_SIZE]);
 int diceROLL(int randomNUM);
+Player initPlayer(int player);
 
 int main(void)
 {
@@ -23,6 +32,39 @@ int main(void)
     print_board(board);
     trueNUM = diceROLL(0);
     printf("%d", trueNUM);
+   
+   int playerCount = 0;
+	do
+	{
+		printf("How many players are there in the game? Choose from 2-4.\n");
+		scanf("%d", &playerCount);
+	} while (playerCount < 2 || playerCount > 4);
+	
+	//";" after case in order to avoid error (just an empty statement)
+	switch (playerCount)
+	{
+		case 2:
+			;
+			Player p1 = initPlayer(1);
+			Player p2 = initPlayer(2);
+			break;
+
+		case 3: 
+			;
+			Player p1 = initPlayer(1);
+			Player p2 = initPlayer(2);
+			Player p3 = initPlayer(3);
+			break;
+
+		case 4:
+			;
+			Player p1 = initPlayer(1);
+			Player p2 = initPlayer(2);
+			Player p3 = initPlayer(3);
+			Player p4 = initPlayer(4);
+			break;
+	}
+   
     return 0;
 }
             
@@ -62,4 +104,14 @@ int diceROLL(int randomNUM)
     return rand() % 3;
 }
 
+Player initPlayer(int player)
+{
+	Player p;
+	p.position = 0;
+	p.balance = 0;
+	p.color = player;
+	p.owned[4] = 0, 0, 0, 0;
+
+	return p;
+}
 
