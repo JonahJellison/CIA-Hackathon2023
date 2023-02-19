@@ -1,0 +1,8 @@
+﻿  functions.c
+  functions2.c
+  main.c
+  main2.c
+C:\OneDrive\School\WSU Spring 2023\Hackathon23\CIA_2023_Hackathon\main2.c(5,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+C:\OneDrive\School\WSU Spring 2023\Hackathon23\CIA_2023_Hackathon\functions2.c(153): warning C4716: 'trade': must return a value
+  CIA_2023_Hackathon.vcxproj -> C:\OneDrive\School\WSU Spring 2023\Hackathon23\x64\Debug\CIA_2023_Hackathon.exe

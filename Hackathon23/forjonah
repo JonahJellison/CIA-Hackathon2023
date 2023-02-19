@@ -1,0 +1,192 @@
+#define _CRT_SECURE_NO_WARNINGS
+#define SQUARE_SIZE 8
+#define BOARD_SIZE 20
+#define NUM_BOARDS 5
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h>
+#include <conio.h>
+
+typedef struct player
+{
+    int position;
+    int balance;
+    int color;
+    int owned[4];
+}Player;
+
+typedef struct space
+{
+    int position;
+    int ownedBy;
+    int rentDue;
+    int playersContained[4];
+    char properyName[50];
+}Space;
+
+
+void print_board(char board[SQUARE_SIZE][SQUARE_SIZE]);
+int diceROLL(int randomNUM);
+Player initPlayer(int player);
+Space FIRSTbox(int start);
+Space PULLMANAIRbox1(int plane);
+Space SOUTHMARKETbox2(int market);
+Space GLOBEHALLbox3(int richppl);
+Space MARTINSTADIUMbox4(int market);
+
+int main(void)
+{
+    int trueNUM = 0;
+    char board[SQUARE_SIZE][SQUARE_SIZE] = {
+        '\0'
+    };
+    print_board(board);
+
+
+    Player p1 = initPlayer(1);
+    Player p2 = initPlayer(2);
+    Player p3 = initPlayer(3);
+    Player p4 = initPlayer(4);
+    int playerCount = 0;
+    do
+    {
+        printf("How many players are there in the game? Choose from 2-4.\n");
+        scanf("%d", &playerCount);
+    } while (playerCount < 2 || playerCount > 4);
+    if (playerCount == 2)
+    {
+        p1.balance = 200;
+        p1.owned[0] = 0;
+        p1.owned[1] = 0;
+        p2.owned[2] = 0;
+        p3.owned[3] = 0;
+        p1.position = 0;
+        p1.color = "\0";
+
+        p2.balance = 200;
+        p2.owned[0] = 0;
+        p2.owned[1] = 0;
+        p2.owned[2] = 0;
+        p2.owned[3] = 0;
+        p2.position = 0;
+        p2.color = "\0";
+    }
+
+
+
+    return 0;
+}
+
+void print_board(char board[SQUARE_SIZE][SQUARE_SIZE])
+{
+    int row = 0, col = 0, board_row = 0, board_col = 0;
+    for (row = 0; row < SQUARE_SIZE; row++)
+    {
+        for (col = 0; col < SQUARE_SIZE; col++)
+        {
+            if (row == 0 || row == SQUARE_SIZE - 1 || col == 0 || col == SQUARE_SIZE - 1)
+            {
+                board[row][col] = '*';
+            }
+            else
+            {
+                board[row][col] = ' ';
+            }
+        }
+    }
+    for (board_row = 0; board_row < SQUARE_SIZE; board_row++)
+    {
+        for (int i = 0; i < NUM_BOARDS; i++)
+        {
+            for (board_col = 0; board_col < SQUARE_SIZE; board_col++)
+            {
+                printf("%c ", board[board_row][board_col]);
+            }
+        }
+        printf("\n");
+    }
+}
+int diceROLL(int randomNUM)
+{
+    srand(time(NULL));
+    return rand() % 3;
+}
+Player initPlayer(int player)
+{
+    Player p;
+    p.position = 0;
+    p.balance = 0;
+    p.color = player;
+    p.owned[0] = 0;
+    p.owned[1] = 0;
+    p.owned[2] = 0;
+    p.owned[3] = 0;
+    return p;
+}
+
+Space FIRSTbox(int start)
+{
+    Space b0;
+    b0.position = 1;
+    b0.ownedBy = 0;
+    b0.playersContained[0] = 0;
+    b0.playersContained[1] = 0;
+    b0.playersContained[2] = 0;
+    b0.playersContained[3] = 0;
+    b0.properyName[49] = "go";
+    return b0;
+}
+
+Space PULLMANAIRbox1(int plane)
+{
+    Space b1;
+    b1.position = 1;
+    b1.ownedBy = 0;
+    b1.playersContained[0] = 0;
+    b1.playersContained[1] = 0;
+    b1.playersContained[2] = 0;
+    b1.playersContained[3] = 0;
+    b1.properyName[49] = "\0";
+    return b1;
+}
+
+Space SOUTHMARKETbox2(int market)
+{
+    Space b2;
+    b2.position = 2;
+    b2.ownedBy = 0;
+    b2.playersContained[0] = 0;
+    b2.playersContained[1] = 0;
+    b2.playersContained[2] = 0;
+    b2.playersContained[3] = 0;
+    b2.properyName[49] = "\0";
+    return b2;
+}
+
+Space GLOBEHALLbox3(int richppl)
+{
+    Space b3;
+    b3.position = 3;
+    b3.ownedBy = 0;
+    b3.playersContained[0] = 0;
+    b3.playersContained[1] = 0;
+    b3.playersContained[2] = 0;
+    b3.playersContained[3] = 0;
+    b3.properyName[49] = "\0";
+    return b3;
+}
+
+
+Space MARTINSTADIUMbox4(int market)
+{
+    Space b2;
+    b2.position = 2;
+    b2.ownedBy = 0;
+    b2.playersContained[0] = 0;
+    b2.playersContained[1] = 0;
+    b2.playersContained[2] = 0;
+    b2.playersContained[3] = 0;
+    b2.properyName[49] = "\0";
+    return b2;
+}
