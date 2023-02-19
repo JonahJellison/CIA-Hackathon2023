@@ -33,6 +33,10 @@ int main(void)
     trueNUM = diceROLL(0);
     printf("%d", trueNUM);
    
+	Player p1 = initPlayer(1);
+	Player p2 = initPlayer(2);
+	Player p3 = initPlayer(3);
+	Player p4 = initPlayer(4);
    int playerCount = 0;
 	do
 	{
@@ -40,30 +44,6 @@ int main(void)
 		scanf("%d", &playerCount);
 	} while (playerCount < 2 || playerCount > 4);
 	
-	//";" after case in order to avoid error (just an empty statement)
-	switch (playerCount)
-	{
-		case 2:
-			;
-			Player p1 = initPlayer(1);
-			Player p2 = initPlayer(2);
-			break;
-
-		case 3: 
-			;
-			Player p1 = initPlayer(1);
-			Player p2 = initPlayer(2);
-			Player p3 = initPlayer(3);
-			break;
-
-		case 4:
-			;
-			Player p1 = initPlayer(1);
-			Player p2 = initPlayer(2);
-			Player p3 = initPlayer(3);
-			Player p4 = initPlayer(4);
-			break;
-	}
    
     return 0;
 }
